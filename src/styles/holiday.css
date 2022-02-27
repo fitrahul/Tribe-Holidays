@@ -1,0 +1,19 @@
+.table{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    justify-content: space-between;
+    border: 1px solid gray;
+    background: rgb(255, 211, 211);
+    padding: 10px;
+}
+
+.table1{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    justify-content: space-between;
+    border: 5px solid rgb(65, 65, 65);
+    background: rgb(195, 195, 195);
+    padding: 10px;
+}

@@ -1,7 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import "../styles/holiday.css"
 
 const Holiday = () => {
+
+    const [eaw, setEaw] = useState({});
+    const [sco, setSco] = useState({});
+    const [ni, setNi] = useState({});
+
     const [dates, setDate] = useState({
         year: "",
         month: "",
@@ -15,8 +21,8 @@ const Holiday = () => {
     var newdate = year + "-" + month + "-" + day;
 
     // useEffect(() => {
-    //     console.log(newdate);
-    // }, [])
+    //     setEaw({});
+    // }, [eaw,sco,ni])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -31,31 +37,59 @@ const Holiday = () => {
             // console.log(res.data);
             var data = res.data;
             // console.log(data["england-and-wales"].events);
-
+            var flag = false;
             for (let j = 0; j < data["england-and-wales"].events.length; j++) {
-                if ((data["england-and-wales"].events[j]).date === final) console.log((data["england-and-wales"].events[j]));
+                if ((data["england-and-wales"].events[j]).date === final) {
+                    setEaw(data["england-and-wales"].events[j]);
+                    flag = true;
+                }
             }
             for (let j = 0; j < data["scotland"].events.length; j++) {
-                if ((data["scotland"].events[j]).date === final) console.log((data["scotland"].events[j]));
+                if ((data["scotland"].events[j]).date === final) {
+                    setSco(data["scotland"].events[j]);
+                    flag = true;
+                }
             }
             for (let j = 0; j < data["northern-ireland"].events.length; j++) {
-                if ((data["northern-ireland"].events[j]).date === final) console.log((data["northern-ireland"].events[j]));
+                if ((data["northern-ireland"].events[j]).date === final) {
+                    setNi(data["northern-ireland"].events[j]);
+                    flag = true;
+                }
             }
-
+            if (flag === false) {
+                setEaw({});
+                setSco({});
+                setNi({});
+            }
         })
     }
 
     const handleYesterday = () => {
         axios.get("https://www.gov.uk/bank-holidays.json").then((res) => {
             var data = res.data;
+            var flag = false;
             for (let j = 0; j < data["england-and-wales"].events.length; j++) {
-                if ((data["england-and-wales"].events[j]).date === newdate) console.log((data["england-and-wales"].events[j]));
+                if ((data["england-and-wales"].events[j]).date === newdate) {
+                    setEaw(data["england-and-wales"].events[j]);
+                    flag = true;
+                }
             }
             for (let j = 0; j < data["scotland"].events.length; j++) {
-                if ((data["scotland"].events[j]).date === newdate) console.log((data["scotland"].events[j]));
+                if ((data["scotland"].events[j]).date === newdate) {
+                    setSco(data["scotland"].events[j]);
+                    flag = true;
+                }
             }
             for (let j = 0; j < data["northern-ireland"].events.length; j++) {
-                if ((data["northern-ireland"].events[j]).date === newdate) console.log((data["northern-ireland"].events[j]));
+                if ((data["northern-ireland"].events[j]).date === newdate) {
+                    setNi(data["northern-ireland"].events[j]);
+                    flag = true;
+                }
+            }
+            if (flag === false) {
+                setEaw({});
+                setSco({});
+                setNi({});
             }
         })
     }
@@ -64,7 +98,7 @@ const Holiday = () => {
         <div>
             <span>
                 <select onChange={(e) => { handleChange(e) }} name="year" value={dates.year}>
-                    <option value="0000">0000</option>
+                    <option value="0000">YEAR</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
@@ -76,7 +110,7 @@ const Holiday = () => {
             </span>
             <span>
                 <select onChange={(e) => { handleChange(e) }} name="month" value={dates.month}>
-                    <option value="00">00</option>
+                    <option value="00">MONTH</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
@@ -93,7 +127,7 @@ const Holiday = () => {
             </span>
             <span>
                 <select onChange={(e) => { handleChange(e) }} name="day" value={dates.day}>
-                    <option value="00">00</option>
+                    <option value="00">DAY</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
@@ -128,7 +162,43 @@ const Holiday = () => {
                 </select>
             </span>
             <button onClick={handleClick}>Search</button><br />
-            <button onClick={handleYesterday}>Yesterday</button>
+            <button onClick={handleYesterday}>Yesterday</button><br /><br />
+            <div className='table1'>
+                <b style={{ width: "25%" }}>Division</b>
+                <b style={{ width: "25%" }}>Title</b>
+                <b style={{ width: "25%" }}>Date</b>
+                <b style={{ width: "25%" }}>Notes</b>
+            </div><br />
+
+            {eaw.date ?
+                <div className='table'>
+                    <div style={{ width: "25%" }}>england-and-wales</div>
+                    <div style={{ width: "25%" }}>{eaw.title}</div>
+                    <div style={{ width: "25%" }}>{eaw.date}</div>
+                    <div style={{ width: "25%" }}>{eaw.notes}</div>
+                </div> :
+                <div>No holiday in england-and-wales</div>
+            }<br />
+
+            {sco.date ?
+                <div className='table'>
+                    <div style={{ width: "25%" }}>scotland</div>
+                    <div style={{ width: "25%" }}>{sco.title}</div>
+                    <div style={{ width: "25%" }}>{sco.date}</div>
+                    <div style={{ width: "25%" }}>{sco.notes}</div>
+                </div> :
+                <div>No holiday in scotland</div>
+            }<br />
+
+            {ni.date ?
+                <div className='table'>
+                    <div style={{ width: "25%" }}>northern-ireland</div>
+                    <div style={{ width: "25%" }}>{ni.title}</div>
+                    <div style={{ width: "25%" }}>{ni.date}</div>
+                    <div style={{ width: "25%" }}>{ni.notes}</div>
+                </div> :
+                <div>No holiday in northern-ireland</div>
+            }<br />
         </div>
     )
 }
