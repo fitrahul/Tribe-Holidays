@@ -44,21 +44,29 @@ const Holiday = () => {
                     flag = true;
                 }
             }
+            if (flag === false) {
+                setEaw({});
+            }
+
+            var flag1 = false;
             for (let j = 0; j < data["scotland"].events.length; j++) {
                 if ((data["scotland"].events[j]).date === final) {
                     setSco(data["scotland"].events[j]);
-                    flag = true;
+                    flag1 = true;
                 }
             }
+            if (flag1 === false) {
+                setSco({});
+            }
+
+            var flag2 = false;
             for (let j = 0; j < data["northern-ireland"].events.length; j++) {
                 if ((data["northern-ireland"].events[j]).date === final) {
                     setNi(data["northern-ireland"].events[j]);
-                    flag = true;
+                    flag2 = true;
                 }
             }
-            if (flag === false) {
-                setEaw({});
-                setSco({});
+            if (flag2 === false) {
                 setNi({});
             }
         })
@@ -74,21 +82,29 @@ const Holiday = () => {
                     flag = true;
                 }
             }
+            if (flag === false) {
+                setEaw({});
+            }
+
+            var flag1 = false;
             for (let j = 0; j < data["scotland"].events.length; j++) {
                 if ((data["scotland"].events[j]).date === newdate) {
                     setSco(data["scotland"].events[j]);
-                    flag = true;
+                    flag1 = true;
                 }
             }
+            if (flag1 === false) {
+                setSco({});
+            }
+
+            var flag2 = false;
             for (let j = 0; j < data["northern-ireland"].events.length; j++) {
                 if ((data["northern-ireland"].events[j]).date === newdate) {
                     setNi(data["northern-ireland"].events[j]);
-                    flag = true;
+                    flag2 = true;
                 }
             }
-            if (flag === false) {
-                setEaw({});
-                setSco({});
+            if (flag2 === false) {
                 setNi({});
             }
         })
