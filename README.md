@@ -1,28 +1,18 @@
-# Signup and Login
+# Bamk holiday
 
-> This is simple app where user can signup and login. After login user redirected to dashboard where he can see there details.
-
+> This is simple app where user can check the bank holiday in different division.
 ## Features
 
-- Sign-up and Sign-in for admin, moderator and users
-- Dashboard is visible after login only
+- Custom date to select the date
+- Yesterday option is there
 
 ## Installing and running the app in pc
 
 <!-- <hr> -->
 To run this application on your local system, execute the following commands on your terminal/command line:
 
-<code>https://github.com/fitrahul/valuenable</code>
+<code>https://github.com/fitrahul/Tribe-Holidays</code>
 
-  ### It has two folders-
-  
-  1. server
-
-  <code>npm i</code> 
-  
-  <code>npm run server</code> 
-  
-  2. client
 
   <code>npm i</code>
 
@@ -30,15 +20,10 @@ To run this application on your local system, execute the following commands on 
   
 ## A Glimpse of our website
 
-1. Signup page-
-![signup](https://user-images.githubusercontent.com/87421972/155700235-bfb4028c-e62a-4b62-adfb-0194c9486153.png)
-
-2. Login page-
-![login](https://user-images.githubusercontent.com/87421972/155700283-8d60b170-0ec9-4da6-9e60-566710c3b58d.png)
-
-3. User detail page-
-![user](https://user-images.githubusercontent.com/87421972/155700368-1524fa75-9b89-41e7-96cd-be04d1375d65.png)
-
+![one](https://user-images.githubusercontent.com/87421972/155941719-b30e973f-31a1-46e6-9063-5c0b80a5a0d7.png)
+![two](https://user-images.githubusercontent.com/87421972/155941740-08389293-09de-40c6-ae1f-95a866dc2825.png)
+![three](https://user-images.githubusercontent.com/87421972/155941756-04289d06-a1a4-4ea3-a8ba-d19d51e31fb0.png)
+![four](https://user-images.githubusercontent.com/87421972/155941774-e9a424d5-957c-43d4-aa73-3b3a788379e4.png)
 
   ## Tech Stack-
 
