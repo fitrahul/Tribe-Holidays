@@ -1,6 +1,7 @@
-# Bamk holiday
+# Bank holiday
 
 > This is simple app where user can check the bank holiday in different division.
+
 ## Features
 
 - Custom date to select the date
