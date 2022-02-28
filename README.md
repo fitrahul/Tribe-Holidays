@@ -35,3 +35,8 @@ To run this application on your local system, execute the following commands on 
 Took some help from these resources 
 1) [W3 Schools](https://www.w3schools.com)
 2) [MDN docs](https://developer.mozilla.org/en-US/)
+
+## Output of Project:- 
+1. [GitHub Deployment](https://tribe-holiday.herokuapp.com/)
+
+
